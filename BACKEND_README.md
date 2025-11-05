@@ -202,38 +202,61 @@ await processNext()
 npm install
 ```
 
-### 2. Set Up Convex
+### 2. Configure Convex Deployment
 
-#### Option A: New Project
-```bash
-npx convex dev
-```
-Follow the prompts to create a new Convex project.
+Your Convex deployment is already set up! Add this to `.env.local`:
 
-#### Option B: Existing Project
-1. Go to [dashboard.convex.dev](https://dashboard.convex.dev)
-2. Create a new project
-3. Copy the deployment URL
-4. Add to `.env.local`:
 ```env
-NEXT_PUBLIC_CONVEX_URL=https://your-project.convex.cloud
+NEXT_PUBLIC_CONVEX_URL=https://kindly-toucan-571.convex.cloud
+
+# Optional: Screenshot API Key
+# Get your key from https://screenshotone.com (uses demo key by default)
+SCREENSHOT_API_KEY=demo
 ```
 
-### 3. Deploy Schema
+**Note**: A `.env.local` file has already been created with these values.
+
+### 3. Push Schema and Functions to Convex
+
 ```bash
+# Push your functions and schema to Convex
 npx convex deploy
 ```
 
-This pushes the schema and functions to Convex.
+This will:
+- Generate proper TypeScript types in `convex/_generated/`
+- Push the database schema
+- Deploy all query/mutation/action functions
+- Make your backend live
+
+**Important**: The placeholder types currently in `convex/_generated/` will be replaced with real types that match your actual functions.
 
 ### 4. Run Development
+
 ```bash
-# Terminal 1: Run Convex dev server
+# Terminal 1: Watch Convex functions for changes
 npx convex dev
 
 # Terminal 2: Run Next.js
 npm run dev
 ```
+
+### Quick Start Commands
+
+```bash
+# First time setup
+npx convex deploy              # Deploy functions to Convex
+npm run dev                    # Start Next.js dev server
+
+# After setup
+npx convex dev                 # Watch for Convex function changes
+```
+
+## 📍 Your Deployment URLs
+
+- **Convex Backend**: https://kindly-toucan-571.convex.cloud
+- **HTTP Actions**: https://kindly-toucan-571.convex.site
+- **Dashboard**: https://dashboard.convex.dev (to view data, logs, and manage deployment)
 
 ## 📝 Usage Examples
 
