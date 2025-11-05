@@ -35,6 +35,9 @@ export interface Component {
     html?: string
   }
   tags: string[]
+  dependencies?: string[]
+  installation?: string
+  usage?: string
 }
 
 export interface DesignToken {
@@ -44,4 +47,6 @@ export interface DesignToken {
   value: string
   usage: number
   projects: string[]
+  description?: string
+  cssVariable?: string
 }
