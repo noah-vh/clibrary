@@ -3,6 +3,7 @@ import "./globals.css"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { ConvexClientProvider } from "@/components/convex-provider"
 
 export const metadata: Metadata = {
   title: "Clibrary - Your Personal Design Learning System",
@@ -17,11 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen font-sans antialiased")}>
-        <div className="relative flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </div>
+        <ConvexClientProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </div>
+        </ConvexClientProvider>
       </body>
     </html>
   )

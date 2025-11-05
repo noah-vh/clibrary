@@ -3,7 +3,8 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Library, Github, Plus } from "lucide-react"
+import { AddProjectDialog } from "@/components/add-project-dialog"
+import { Library, Github } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
@@ -44,10 +45,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="ml-auto flex items-center space-x-4">
-          <Button variant="outline" size="sm" className="gap-2">
-            <Plus className="h-4 w-4" />
-            <span className="hidden sm:inline">Add to Queue</span>
-          </Button>
+          <AddProjectDialog />
           <Link
             href="https://github.com"
             target="_blank"
